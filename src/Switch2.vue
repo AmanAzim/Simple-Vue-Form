@@ -1,22 +1,22 @@
 <template>
-    <div>
-        <div id="on" @click="switched(true)" :class="{active:isOnValue}"> On
+        <div>
+            <div id="on" @click="switched(true)" :class="{active:value}"> On
 
-        </div>
-        <div id="off" @click="switched(false)" :class="{active:!isOnValue}"> Off
+            </div>
+            <div id="off" @click="switched(false)" :class="{active:!value}"> Off
 
+            </div>
         </div>
-    </div>
 </template>
 
 <script>
     export default {
         props:{
-            isOnValue:Boolean,
+            value:Boolean,  // always need to use "value"
         },
         methods:{
             switched(isOn){
-                this.$emit('switched-event', isOn);
+                this.$emit('input', isOn); //always need to use "input"
             }
         }
     }
@@ -41,3 +41,6 @@
         background-color: lightcoral;
     }
 </style>
+
+
+

@@ -96,8 +96,9 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                    <app-switch></app-switch>
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 ">
+                    <app-switch v-bind:isOnValue="dataSwitch" @switched-event="dataSwitch=$event"></app-switch>
+                    <app-switch2 v-model="dataSwitch2"></app-switch2>
                 </div>
             </div>
             <hr>
@@ -125,7 +126,8 @@
                         </ul>
                         <p>Gender:{{gender}}</p>
                         <p>Priority:{{selectedPriority}}</p>
-                        <p>Switched:</p>
+                        <p>Switched: {{dataSwitch}}</p>
+                        <p>Switched 2: {{dataSwitch2}}</p>
                     </div>
                 </div>
             </div>
@@ -135,9 +137,11 @@
 
 <script>
     import Switch from './Switch.vue';
+    import Switch2 from './Switch2.vue';
     export default {
         components:{
             'app-switch':Switch,
+            'app-switch2':Switch2,
         },
         data(){
             return{
@@ -151,6 +155,8 @@
                 gender:'',
                 priorities:['High', 'Medium', 'Low'],
                 selectedPriority:'',
+                dataSwitch:true,
+                dataSwitch2:true,
             };
         },
     }
