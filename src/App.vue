@@ -27,7 +27,9 @@
                                 type="number"
                                 id="age"
                                 class="form-control"
-                                v-model="userData.age">
+                                v-bind:value="userData.age" @input="userData.age=$event.target.value">
+                           <!-- v-model="userData.age" -->
+
                     </div>
 
                 </div>
@@ -95,6 +97,12 @@
             <hr>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                    <app-switch></app-switch>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <button class="btn btn-primary">Submit!</button>
                 </div>
             </div>
@@ -126,7 +134,11 @@
 </template>
 
 <script>
+    import Switch from './Switch.vue';
     export default {
+        components:{
+            'app-switch':Switch,
+        },
         data(){
             return{
                 userData:{
